@@ -200,6 +200,7 @@ def pedir_cosas():
                 hablar(f'La encontré, el precio de {accion} es {precio_actual}')
                 continue
 
+
             except:
                 hablar('Perdón, pero no la he encontrado')
                 continue
