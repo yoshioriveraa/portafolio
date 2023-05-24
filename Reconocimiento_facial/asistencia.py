@@ -38,7 +38,17 @@ def codificar(imagenes):
 
 # Registar los ingresos
 def registrar_ingresos(persona):
+    f = open('registro.csv','r+')
+    lista_datos = f.readlines()
+    nombres_registro = []
+    for linea in lista_datos:
+        ingreso = linea.split(',')
+        nombres_registro.append(ingreso[0])
 
+    if persona not in nombres_registro:
+        ahora = datetime.now()
+        string_ahora = ahora.strftime('%H:%M:%S')
+        f.writelines(f'\n{persona}, {string_ahora}')
 
 
 # Llamada de la función
@@ -82,6 +92,10 @@ else:
             cv2.rectangle(imagen, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.rectangle(imagen, (x1, y1 - 32), (x2, y2), (0, 255, 0), cv2.FILLED)
             cv2.putText(imagen, nombre, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+
+            # Funcion de registrar los nombrs
+            registrar_ingresos(nombre)
+
             # Mostrar la imgen obtenida
             cv2.imshow('Imagen Web', imagen)
 
