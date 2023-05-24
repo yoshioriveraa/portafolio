@@ -36,6 +36,11 @@ def codificar(imagenes):
     # Devolver lista codificada
     return lista_codificada
 
+# Registar los ingresos
+def registrar_ingresos(persona):
+
+
+
 # Llamada de la función
 lista_empleados_codificada = codificar(mis_imagenes)
 
@@ -68,4 +73,17 @@ else:
             print('No coincide con niguno de nuestros empleados')
 
         else:
-            print('Bienvenido al trabajo')
+            # Buscar el nombre del empleado encontrado
+            nombre = nombres_empleados[indice_coincidencia]
+
+            print(f'Bienvenido al trabajo {nombre}')
+
+            y1, x2, y2, x1 = caraubic
+            cv2.rectangle(imagen, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.rectangle(imagen, (x1, y1 - 32), (x2, y2), (0, 255, 0), cv2.FILLED)
+            cv2.putText(imagen, nombre, (x1 + 6, y2 - 6), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+            # Mostrar la imgen obtenida
+            cv2.imshow('Imagen Web', imagen)
+
+            # mantener ventana abierta
+            cv2.waitKey(0)
