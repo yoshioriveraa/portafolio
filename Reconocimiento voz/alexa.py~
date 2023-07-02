@@ -7,7 +7,7 @@ import pyjokes
 import webbrowser
 import datetime
 import wikipedia
-import yfinance as yf
+import yfinance as yf 
 
 # escuchar nuestro microfono y devolver el audio comotexto
 
@@ -228,6 +228,7 @@ def pedir_cosas():
                 comenzar = False     
         
 
+pedir_cosas()
 
 
 
